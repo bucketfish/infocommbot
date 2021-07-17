@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from discord.ext import commands
 from datetime import *
 
-#from keep_alive import keep_alive
+from keep_alive import keep_alive
 
 from small import nya, oo
 
@@ -40,8 +40,10 @@ async def pingpong(ctx):
 async def help(ctx):
     await ctx.send("""
 hello! i'm duck. but digital. haha! bet you didn't know that.
-there'll be commands soon, but for now, the only one i have is
+there are some useful commands and some fun commands :)
 > quack help - shows this
+> quack nya [message] - nya's your message
+> quack oo [message] - oo's your message
 
 have fun in infocomm discord!
     """)
@@ -82,5 +84,5 @@ async def on_message(ctx):
 
     await bot.process_commands(ctx)
 
-#keep_alive()
+keep_alive()
 bot.run(TOKEN)
