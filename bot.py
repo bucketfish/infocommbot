@@ -7,6 +7,7 @@ import pickle
 from dotenv import load_dotenv
 from discord.ext import commands
 from datetime import *
+import requests
 
 from keep_alive import keep_alive
 
@@ -44,6 +45,7 @@ there are some useful commands and some fun commands :)
 > quack help - shows this
 > quack nya [message] - nya's your message
 > quack oo [message] - oo's your message
+> quack scoreboard - shows the grouping scoreboard!
 
 have fun in infocomm discord!
     """)
@@ -70,7 +72,13 @@ async def nya_(ctx, *args):
 async def oo_(ctx, *args):
     await ctx.send(oo(" ".join(args[:])))
 
-
+@bot.command('scoreboard')
+async def scoreboard(ctx):
+    scores = requests.get("https://keepthescore.co/api/swpoukgtwjr/players").json()
+    response = "__**infocomm group scoreboard!**__\n"
+    for i in scores["players"]:
+        response += i["player_name"] + ": " + str(i["total"]) + "\n"
+    await ctx.send(response)
 
 @bot.event
 async def on_message(ctx):
