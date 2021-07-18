@@ -46,6 +46,7 @@ there are some useful commands and some fun commands :)
 > quack nya [message] - nya's your message
 > quack oo [message] - oo's your message
 > quack scoreboard - shows the grouping scoreboard!
+> quack github - links to the github!
 
 have fun in infocomm discord!
     """)
